@@ -2,8 +2,8 @@ name: Develop
 
 on:
   pull_request:
-    branches-ignore:
-      - '**'
+    branches:
+      - master
 
 jobs:
   test:
@@ -41,6 +41,8 @@ jobs:
       - run: yarn lint
 
       - run: yarn test:ci
+
+      - run: yarn build
       
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1

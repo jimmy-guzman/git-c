@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    branches-ignore:
-      - '**'
+    branches:
+      - master
 
 jobs:
   test:
@@ -33,6 +33,7 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn lint
       - run: yarn test:ci
+      - run: yarn build
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
@@ -71,9 +72,10 @@ jobs:
           node-version: '${{ steps.nvm.outputs.NVMRC }}'
 
       - run: yarn install --frozen-lockfile
+      - run: yarn build
 
       - name: Publish to NPM
-        run: npx semantic-release
+        run: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
