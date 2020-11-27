@@ -1,21 +1,26 @@
 {
   "compilerOptions": {
-    "alwaysStrict": true,
+    "strict": true,
     "esModuleInterop": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
+    "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "target": "es6",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "lib": ["es2017"],
-    "sourceMap": false,
-    "strictNullChecks": true,
-    "outDir": "lib",
+    "importHelpers": true,
     "resolveJsonModule": true,
-    "rootDir": "./src"
+    "module": "commonjs",
+    "outDir": "./lib",
+    "rootDirs": [
+      "./src"
+    ],
+    "strictNullChecks": true,
+    "target": "es2017"
   },
-  "include": ["src"]
+  "include": [
+    "./src/**/*"
+  ]
 }
