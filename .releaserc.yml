@@ -3,9 +3,10 @@ plugins:
   - '@semantic-release/release-notes-generator'
   - '@semantic-release/changelog'
   - '@semantic-release/npm'
+  - - '@semantic-release/exec'
+    - prepareCmd: 'oclif-dev manifest && oclif-dev readme --dir docs/ --multi && yarn prettify'
   - - '@semantic-release/git'
-    -
-      assets:
+    - assets:
        - "docs"
        - "package.json"
        - 'README.md'

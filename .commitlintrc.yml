@@ -29,6 +29,7 @@ rules:
   - 2
   - always
   - - deps
+    - build
     - all
     - commit
   subject-case:
