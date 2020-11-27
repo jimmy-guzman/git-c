@@ -32,4 +32,4 @@ EXAMPLES
   git-c c -m "added cool new feature" -t "feat" -s "amazing"
 ```
 
-_See code: [src/commands/commit.ts](https://github.com/comparto/git-c/blob/v1.0.0/src/commands/commit.ts)_
+_See code: [src/commands/commit.ts](https://github.com/comparto/git-c/blob/v1.0.1/src/commands/commit.ts)_
