@@ -24,7 +24,9 @@ export const loadConfig = async <T>(
   return local ? local : null
 }
 
-const cleanObject = (object: Record<string, unknown>) => {
+export const cleanObject = (
+  object: Record<string, unknown>
+): Record<string, unknown> => {
   return Object.entries(object).reduce<Record<string, unknown>>(
     (currentObject, [key, value]) => {
       const isEmpty = value === null || value === undefined

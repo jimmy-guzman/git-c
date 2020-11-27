@@ -6,6 +6,7 @@ import chalk from 'chalk'
 import { messages } from '../messages'
 import { defaultAnswers, defaultConfig } from '../defaults'
 import { getUserConfig } from '../config'
+import { cleanObject } from '../config/config.helpers'
 import {
   checkIfStaged,
   createQuestions,
@@ -53,7 +54,11 @@ export default class GitCommitCli extends Command {
     )
     const answers = await inquirer.prompt(questions)
 
-    this.state.answers = { ...this.state.answers, ...cliFlags, ...answers }
+    this.state.answers = {
+      ...this.state.answers,
+      ...cleanObject(cliFlags),
+      ...answers
+    }
   }
 
   async run(): Promise<void> {
