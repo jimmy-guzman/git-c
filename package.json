@@ -1,7 +1,7 @@
 {
   "name": "@comparto/git-c",
   "description": "Conventional git cli.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "@jimmy-guzman <jimmy.guzman@outlook.com>",
   "main": "lib/index.js",
   "bin": {
