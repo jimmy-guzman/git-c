@@ -1,0 +1,1 @@
+export { scope } from './scope'

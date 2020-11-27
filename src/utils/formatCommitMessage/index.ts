@@ -1,0 +1,1 @@
+export { formatCommitMessage } from './formatCommitMessage'

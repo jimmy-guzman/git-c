@@ -1,0 +1,3 @@
+- retry option
+- dry-run
+- move away from typescript compiler

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["es2017"],
+    "sourceMap": false,
+    "strictNullChecks": true,
+    "outDir": "lib",
+    "resolveJsonModule": true,
+    "rootDir": "./src"
+  },
+  "include": ["src"]
+}
