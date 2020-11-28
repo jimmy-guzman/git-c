@@ -36,7 +36,7 @@ describe('formatCommitMessage', () => {
     const formattedMessage = setupFormatCommitMessage({ disableEmoji: true })
 
     expect(formattedMessage).toMatchInlineSnapshot(`
-      "feat(*): 🎸 a cool new feature
+      "feat(*): a cool new feature
 
       this an amazing feature, lots of details
 

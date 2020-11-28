@@ -51,7 +51,7 @@ export const formatCommitMessage = (
   config: GitCConfig,
   answers: Answers
 ): string => {
-  const hasEmoji = !config.disableEmoji || config.details[answers.type].emoji
+  const hasEmoji = !config.disableEmoji && config.details[answers.type].emoji
   const emojiPrefix = hasEmoji ? `${config.details[answers.type].emoji} ` : ''
   const scope = createScope(answers)
   const head = `${answers.type + scope}: ${emojiPrefix}${answers.subject}`
