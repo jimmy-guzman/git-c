@@ -1,4 +1,3 @@
-import shellescape from 'any-shell-escape'
 import chalk from 'chalk'
 import { spawn, exec } from 'child_process'
 
@@ -10,8 +9,7 @@ const executeCommand = (
   args: string[] = [],
   env = process.env
 ): void => {
-  const formattedCommand = shellescape([command, ...args])
-  const proc = spawn(formattedCommand, [], {
+  const proc = spawn(command, args, {
     env,
     shell: true,
     stdio: [0, 1, 2]
@@ -28,7 +26,7 @@ export const executeGitMessage = (
 ): void => {
   const message = formatCommitMessage(config, answers)
 
-  return executeCommand('git', ['commit', '-m', message, ...passThrough])
+  return executeCommand('git', ['commit', '-m', `"${message}"`, ...passThrough])
 }
 
 /**

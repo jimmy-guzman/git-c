@@ -61,4 +61,6 @@ export const formatCommitMessage = (
   const issues = wrap(answers.issues, wrapOptions)
 
   return createMessage(head, body, breaking, issues, config)
+    .replace(/"/g, '\\"')
+    .replace(/`/g, '\\`')
 }
