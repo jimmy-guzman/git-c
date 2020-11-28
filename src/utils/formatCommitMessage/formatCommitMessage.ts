@@ -1,14 +1,13 @@
-import wrap from 'word-wrap'
-import { Answers } from 'inquirer'
+import { Answers, GitCConfig } from '../../interfaces'
 
-import { GitCConfig } from '../../interfaces'
-
-const MAX_LINE_WIDTH = 72
-const wrapOptions = {
-  indent: '',
-  trim: true,
-  width: MAX_LINE_WIDTH
-}
+/**
+ * wraps string based on width
+ */
+const wrap = (string: string, width = 72) =>
+  string.replace(
+    new RegExp(`(?![^\\n]{1,${width}}$)([^\\n]{1,${width}})\\s`, 'g'),
+    '$1\n'
+  )
 
 const createMessage = (
   head: string,
@@ -56,9 +55,9 @@ export const formatCommitMessage = (
   const emojiPrefix = hasEmoji ? `${config.details[answers.type].emoji} ` : ''
   const scope = createScope(answers)
   const head = `${answers.type + scope}: ${emojiPrefix}${answers.subject}`
-  const body = wrap(answers.body || '', wrapOptions)
-  const breaking = wrap(answers.breaking, wrapOptions)
-  const issues = wrap(answers.issues, wrapOptions)
+  const body = wrap(answers.body || '')
+  const breaking = wrap(answers.breaking)
+  const issues = wrap(answers.issues)
 
   return createMessage(head, body, breaking, issues, config)
     .replace(/"/g, '\\"')
