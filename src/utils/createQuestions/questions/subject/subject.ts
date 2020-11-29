@@ -2,6 +2,12 @@ import { Question } from 'inquirer'
 
 import { Answers, GitCConfig } from '../../../../interfaces'
 
+interface SubjectQuestion extends Question {
+  leadingLabel: (answers: Answers) => string
+  maxLength: number
+  validate: (input: string) => string | true
+}
+
 export const filterSubject = (input: string): string => {
   return input.trim().replace(/\.$/, '')
 }
@@ -9,7 +15,7 @@ export const filterSubject = (input: string): string => {
 export const subject = (
   { minMessageLength, maxMessageLength, disableEmoji }: GitCConfig,
   userAnswers: Answers
-): Question => {
+): SubjectQuestion => {
   const minTitleLengthErrorMessage = `The subject must have at least ${minMessageLength} characters`
   const question = {
     filter: filterSubject,
