@@ -29,7 +29,7 @@
     "watch:test": "jest --watch",
     "watch:build": "tsc -w",
     "build": "run-s build:cli",
-    "build:cli": "rm -rf lib && tsc -b",
+    "build:cli": "rm -rf lib && tsc -b tsconfig.prod.json",
     "build:readme": "oclif-dev readme --dir docs/ --multi && yarn prettify",
     "schema:build": "./scripts/build-schema.sh",
     "postpublish": "rm -f oclif.manifest.json",
