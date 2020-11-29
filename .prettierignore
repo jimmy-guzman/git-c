@@ -1,4 +1,5 @@
 CHANGELOG.md
 .github/
+.cache
 dist/
-list/
+lib/
