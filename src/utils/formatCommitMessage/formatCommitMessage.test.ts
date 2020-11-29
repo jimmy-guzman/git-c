@@ -118,8 +118,8 @@ describe('formatCommitMessage', () => {
       volutpat commodo sed egestas egestas fringilla phasellus faucibus
       scelerisque eleifend donec
 
-      BREAKING CHANGE: 🧨 volutpat commodo sed egestas egestas fringilla phasellus faucibus
-      scelerisque eleifend donec pretium
+      BREAKING CHANGE: 🧨 volutpat commodo sed egestas egestas fringilla
+      phasellus faucibus scelerisque eleifend donec pretium
 
       🏁 Closes: #123"
     `)

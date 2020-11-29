@@ -1,51 +1,34 @@
 import { Answers, GitCConfig } from '../../interfaces'
 
-/**
- * wraps string based on width
- */
 const wrap = (string: string, width = 72) =>
   string.replace(
     new RegExp(`(?![^\\n]{1,${width}}$)([^\\n]{1,${width}})\\s`, 'g'),
     '$1\n'
   )
 
-const createMessage = (
-  head: string,
-  body: string,
+const normalizeMessage = (message: string) =>
+  message.replace(/"/g, '\\"').replace(/`/g, '\\`')
+
+const createBreaking = (
   breaking: string,
+  { disableEmoji, breakingChangeEmoji }: GitCConfig
+) =>
+  breaking
+    ? `\n\nBREAKING CHANGE: ${
+        disableEmoji ? '' : `${breakingChangeEmoji} `
+      }${breaking}`
+    : ''
+
+const createIssues = (
   issues: string,
-  config: GitCConfig
-) => {
-  let msg = head
+  { disableEmoji, closedIssueEmoji }: GitCConfig
+) =>
+  issues
+    ? `\n\n${disableEmoji ? '' : `${closedIssueEmoji} `}Closes: ${issues}`
+    : ''
 
-  if (body) {
-    msg += `\n\n${body}`
-  }
-
-  if (breaking) {
-    const breakingEmoji = config.disableEmoji
-      ? ''
-      : `${config.breakingChangeEmoji} `
-
-    msg += `\n\nBREAKING CHANGE: ${breakingEmoji}${breaking}`
-  }
-
-  if (issues) {
-    const closedIssueEmoji = config.disableEmoji
-      ? ''
-      : `${config.closedIssueEmoji} `
-
-    msg += `\n\n${closedIssueEmoji}Closes: ${issues}`
-  }
-
-  return msg
-}
-
-export const createScope = (answers: Answers): string => {
-  const hasScope = answers.scope && answers.scope !== 'none'
-
-  return hasScope ? `(${answers.scope})` : ''
-}
+const createScope = (scope: string) =>
+  scope && scope !== 'none' ? `(${scope})` : ''
 
 export const formatCommitMessage = (
   config: GitCConfig,
@@ -53,13 +36,11 @@ export const formatCommitMessage = (
 ): string => {
   const hasEmoji = !config.disableEmoji && config.details[answers.type].emoji
   const emojiPrefix = hasEmoji ? `${config.details[answers.type].emoji} ` : ''
-  const scope = createScope(answers)
+  const scope = createScope(answers.scope)
   const head = `${answers.type + scope}: ${emojiPrefix}${answers.subject}`
-  const body = wrap(answers.body || '')
-  const breaking = wrap(answers.breaking)
-  const issues = wrap(answers.issues)
+  const body = answers.body ? `\n\n${answers.body}` : ''
+  const breaking = createBreaking(answers.breaking, config)
+  const issues = createIssues(answers.issues, config)
 
-  return createMessage(head, body, breaking, issues, config)
-    .replace(/"/g, '\\"')
-    .replace(/`/g, '\\`')
+  return wrap(normalizeMessage(`${head}${body}${breaking}${issues}`))
 }
