@@ -1,7 +1,5 @@
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  testPathIgnorePatterns: ['/node_modules/', 'lib/'],
+  collectCoverageFrom: ['src/**/*.{js,ts}'],
   coverageThreshold: {
     global: {
       branches: 100,
@@ -9,5 +7,8 @@ module.exports = {
       lines: 100,
       statements: 100
     }
-  }
+  },
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  testPathIgnorePatterns: ['/node_modules/', 'lib/']
 }
