@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/comparto/git-c/compare/v1.0.1...v1.0.2) (2020-12-06)
+
+
+### Bug Fixes
+
+* **build:** 🐛 do not bundle test files ([7528347](https://github.com/comparto/git-c/commit/7528347a18b17625655c8ab0acc6bfce0ddb6177))
+* **commit:** 🐛 actually disable emojis for commit type ([9ad6a31](https://github.com/comparto/git-c/commit/9ad6a31d8f4c48cb58789b5c6665604e852cc578))
+* **commit:** 🐛 wrap breaking change message including title ([16c1b06](https://github.com/comparto/git-c/commit/16c1b06233a1615e083a16c50fb3bc9e9bfbb463))
+
 ## [1.0.1](https://github.com/comparto/git-c/compare/v1.0.0...v1.0.1) (2020-11-27)
 
 

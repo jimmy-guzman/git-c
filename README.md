@@ -17,7 +17,7 @@ $ npm install -g @comparto/git-c
 $ git-c COMMAND
 running command...
 $ git-c (-v|--version|version)
-@comparto/git-c/1.0.1 linux-x64 node-v14.15.0
+@comparto/git-c/1.0.2 linux-x64 node-v14.15.1
 $ git-c --help [COMMAND]
 USAGE
   $ git-c COMMAND
