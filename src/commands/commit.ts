@@ -1,22 +1,13 @@
 import { Command } from '@oclif/command'
-import inquirer from 'inquirer'
-import AutoCompletePrompt from 'inquirer-autocomplete-prompt'
-import chalk from 'chalk'
+import prompts from 'prompts'
+import kleur from 'kleur'
 
-import { messages } from '../messages'
 import { defaultAnswers, defaultConfig } from '../defaults'
 import { getUserConfig } from '../config'
-import { cleanObject } from '../config/config.helpers'
-import {
-  checkIfStaged,
-  createQuestions,
-  executeGitMessage,
-  MaxInputPrompt
-} from '../utils'
+import { checkIfStaged, createQuestions, executeGitMessage } from '../utils'
 import { commitFlags } from '../flags'
-
-inquirer.registerPrompt('autocomplete', AutoCompletePrompt)
-inquirer.registerPrompt('maxlength-input', MaxInputPrompt)
+import { messages } from '../messages'
+import { Answers, Questions } from '../interfaces'
 
 const shouldCheckIfStaged = (array: string[] = []): boolean => {
   return !['--add', '-a', '--amend'].some(flag => array.includes(flag))
@@ -43,21 +34,39 @@ export default class GitCommitCli extends Command {
     }
   }
 
+  customPrompt = async (
+    customPrompts: Questions[],
+    userAnswers?: Answers
+  ): Promise<Answers> => {
+    return prompts(
+      createQuestions(
+        {
+          ...this.state,
+          answers: { ...this.state.answers, ...userAnswers }
+        },
+        customPrompts
+      ),
+      {
+        onCancel: () => {
+          process.exit(1)
+        }
+      }
+    ) as Promise<Answers>
+  }
+
   promptQuestions = async (): Promise<void> => {
     const { flags: cliFlags } = this.parse(GitCommitCli)
-    const fQuestions = this.state.config.questions.filter(question => {
-      return !Object.keys(cliFlags).includes(question)
-    })
-    const questions = createQuestions(
-      { ...this.state.config, questions: fQuestions },
-      this.state.answers
-    )
-    const answers = await inquirer.prompt(questions)
+    const [first, second, ...rest] = defaultConfig.questions
+
+    prompts.override(cliFlags)
+
+    const firstAnswers = await this.customPrompt([first, second])
+    const secondAnswers = await this.customPrompt(rest, firstAnswers)
 
     this.state.answers = {
       ...this.state.answers,
-      ...cleanObject(cliFlags),
-      ...answers
+      ...firstAnswers,
+      ...secondAnswers
     }
   }
 
@@ -71,6 +80,6 @@ export default class GitCommitCli extends Command {
   }
 
   async catch(error: Error): Promise<void> {
-    await this.log(chalk.red(error))
+    await this.log(kleur.red(String(error)))
   }
 }
