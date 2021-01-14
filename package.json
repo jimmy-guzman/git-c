@@ -22,7 +22,7 @@
   "scripts": {
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint/ . --ext .ts",
     "lint:fix": "yarn lint --fix",
-    "prettify": "prettier '**/**/*.{ts,md}' --write",
+    "prettify": "prettier '**/**/*.{ts,md,json}' --write",
     "test": "jest",
     "test:ci": "yarn test",
     "test:coverage": "jest --coverage",
@@ -46,7 +46,7 @@
     }
   },
   "lint-staged": {
-    "*.{md}": [
+    "*.{md,json}": [
       "prettier --write"
     ],
     "*.{ts}": [
