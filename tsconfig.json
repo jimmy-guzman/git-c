@@ -14,13 +14,9 @@
     "resolveJsonModule": true,
     "module": "commonjs",
     "outDir": "./lib",
-    "rootDirs": [
-      "./src"
-    ],
+    "rootDirs": ["./src"],
     "strictNullChecks": true,
     "target": "es2017"
   },
-  "include": [
-    "./src/**/*"
-  ]
+  "include": ["./src/**/*"]
 }
