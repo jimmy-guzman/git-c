@@ -68,7 +68,6 @@
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.14.0",
     "@oclif/plugin-help": "^3.1.0",
-    "ajv": "^6.12.6",
     "cosmiconfig": "^7.0.0",
     "fuzzy-search": "^3.2.1",
     "kleur": "^3.0.3",
