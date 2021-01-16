@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/comparto/git-c/compare/v1.0.2...v2.0.0) (2021-01-16)
+
+
+### Features
+
+* **commit:** 🎸 improve performance by dropping `inquirerjs` ([061d2f4](https://github.com/comparto/git-c/commit/061d2f4be95890f985eb71ff198a4633626c7ab6))
+
+
+### BREAKING CHANGES
+
+* **commit:** 🧨 interactive cli UX is changed drastically by
+replacing underlying prompts manager
+
 ## [1.0.2](https://github.com/comparto/git-c/compare/v1.0.1...v1.0.2) (2020-12-06)
 
 
