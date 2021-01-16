@@ -1,13 +1,18 @@
 {
   "cSpell.words": [
     "Commitlint",
+    "Commitlint's",
+    "commandsstop",
     "comparto",
     "cosmiconfig",
     "deps",
     "gitc",
+    "gitcrc",
+    "gitmoji",
     "globby",
     "kleur",
     "oclif",
-    "postpublish"
+    "postpublish",
+    "usagestop"
   ]
 }
