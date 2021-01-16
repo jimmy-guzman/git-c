@@ -17,7 +17,7 @@ export default class GitCommitCli extends Command {
   static description = messages.description
   static examples = messages.examples
   static flags = commitFlags
-  static aliases = ['c']
+  static aliases = ['', 'c']
 
   state = { config: defaultConfig, answers: defaultAnswers }
 

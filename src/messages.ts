@@ -19,12 +19,13 @@ const skipQuestionMessage = (question: string) =>
 
 export const messages: Messages = {
   examples: [
+    'git-c',
     'git-c commit',
     'git-c c',
     'git-c c -p --amend',
-    'git-c c -m "added cool new feature" -t "feat" -s "amazing"'
+    'git-c commit -m "added cool new feature" -t "feat" -s "amazing"'
   ],
-  description: 'interactive conventional commit cli',
+  description: 'interactive conventional commits cli (default command)',
   flags: {
     get body(): string {
       return skipQuestionMessage('body')

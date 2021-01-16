@@ -1,12 +1,12 @@
 # `git-c commit`
 
-interactive conventional commit cli
+interactive conventional commits cli (default command)
 
 - [`git-c commit`](#git-c-commit)
 
 ## `git-c commit`
 
-interactive conventional commit cli
+interactive conventional commits cli (default command)
 
 ```
 USAGE
@@ -23,13 +23,15 @@ OPTIONS
   -t, --type=type                skip "type" question and provide your own "type" message
 
 ALIASES
+  $ git-c
   $ git-c c
 
 EXAMPLES
+  git-c
   git-c commit
   git-c c
   git-c c -p --amend
-  git-c c -m "added cool new feature" -t "feat" -s "amazing"
+  git-c commit -m "added cool new feature" -t "feat" -s "amazing"
 ```
 
 _See code: [src/commands/commit.ts](https://github.com/comparto/git-c/blob/v2.1.0/src/commands/commit.ts)_

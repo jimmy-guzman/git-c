@@ -6,9 +6,13 @@
 
 # @comparto/git-c
 
-Interactive conventional commit cli, inspired by [git-cz](https://github.com/streamich/git-cz)
+Interactive conventional commits cli, inspired by [git-cz](https://github.com/streamich/git-cz) with the ability to leverage `commitlint` configuration, configuration validation, versatile configuration through `cosmiconfig` and more
 
 # Usage
+
+```bash
+npx @comparto/git-c
+```
 
   <!-- usage -->
 
@@ -17,7 +21,7 @@ $ npm install -g @comparto/git-c
 $ git-c COMMAND
 running command...
 $ git-c (-v|--version|version)
-@comparto/git-c/2.1.0 linux-x64 node-v14.15.4
+@comparto/git-c/2.1.0 darwin-x64 node-v14.15.4
 $ git-c --help [COMMAND]
 USAGE
   $ git-c COMMAND
