@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/comparto/git-c/compare/v2.0.0...v2.1.0) (2021-01-16)
+
+
+### Features
+
+* **commit:** 🎸 increase performance by removing `ajv` ([322c954](https://github.com/comparto/git-c/commit/322c9540e1a592ee87347af6f5ad9c4a20e66dda))
+
 # [2.0.0](https://github.com/comparto/git-c/compare/v1.0.2...v2.0.0) (2021-01-16)
 
 
