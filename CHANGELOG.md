@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/comparto/git-c/compare/v2.1.0...v2.2.0) (2021-01-22)
+
+
+### Features
+
+* **commit:** 🎸 made `commit` the default command for ease ([1cc46a9](https://github.com/comparto/git-c/commit/1cc46a99730abde11c1553bfd2b414531f90b72c))
+
 # [2.1.0](https://github.com/comparto/git-c/compare/v2.0.0...v2.1.0) (2021-01-16)
 
 
