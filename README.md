@@ -1,3 +1,5 @@
+**This repository has been archived and all has work moved to [gitzy](https://github.com/jimmy-guzman/gitzy#gitzy)**
+
 ![actions][actions-badge]
 [![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
 [![Code Coverage][coverage-badge]][coverage]
